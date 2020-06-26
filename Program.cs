@@ -1,21 +1,46 @@
 ﻿using System;
+using System.Threading;
 
 namespace Deliverable2
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("Enter a word.");
+            string input;
+            string message1;
+            string message = "Your encoded message is ";
+            int add;
+            int checksum = 0;
+            string final = "Message checksum is ";
+            Console.WriteLine("What is your message?");
 
-            String input = Console.ReadLine();
+            input = Console.ReadLine();
 
-            String upperInput = input.ToUpper();
+            string upperInput = input.ToUpper();
 
-            foreach (char c in upperInput)
+            char[] charArr = upperInput.ToCharArray();
+
+
+
+            foreach (char ch in charArr)
             {
-                Console.WriteLine(c.ToString());
+                string val = (Convert.ToInt32(ch) - 64).ToString();
+                message1 = val + "-";
+                message = message + message1;
             }
+
+            Console.WriteLine(message);
+
+            foreach (char ch in charArr)
+            {
+                int vat = (Convert.ToInt32(ch));
+                add = vat += vat;
+                checksum = checksum + add;
+                final = final + checksum.ToString();
+            }
+
+            Console.Write(final);
         }
     }
 }
