@@ -10,7 +10,6 @@ namespace Deliverable2
             string input;
             string message1;
             string message = "Your encoded message is ";
-            int add;
             int checksum = 0;
             string final = "Message checksum is ";
             Console.WriteLine("What is your message?");
@@ -34,10 +33,8 @@ namespace Deliverable2
 
             foreach (char ch in charArr)
             {
-                int vat = (Convert.ToInt32(ch));
-                add = vat += vat;
-                checksum = checksum + add;
-                final = final + checksum.ToString();
+                checksum = checksum + (Convert.ToInt32(ch));
+                final = "Message checksum is " + checksum.ToString();
             }
 
             Console.Write(final);
